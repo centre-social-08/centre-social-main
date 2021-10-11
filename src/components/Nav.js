@@ -25,7 +25,7 @@ const Nav = () => {
             </li>
             </ul>
             <div>
-            <a href="/">Connexion</a>
+            <button>Connexion</button>
             </div>
         </nav>
     )
