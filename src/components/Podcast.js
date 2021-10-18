@@ -20,7 +20,9 @@ const Podcast = () => {
               <Spinner name="ball-beat" />
           </div>
         : ''}
-            <iframe onLoad={() => iframeLoading()} title="Chronique Magdo Zoo" width="100%" src="https://audioblog.arteradio.com/embed/158923" style={{margin: 0, padding: 0, border: 'none',}}></iframe>
+            <iframe onLoad={() => iframeLoading()} 
+            title="Chronique Magdo Zoo" width="100%" src="https://audioblog.arteradio.com/embed/158923" 
+            style={{margin: 0, padding: 0, border: 'none',}}></iframe>
       </div>
       <div className="px-6 pb-2">
         <span className="inline-block bg-yellow-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Publié le 04/01/2021</span>

@@ -18,14 +18,19 @@ const Live = () => {
       }, []);
 
       useEffect(() => {
-        async function getTracks() {
-          let fetchTracks = await fetch('https://api.radioking.io/widget/radio/csm-webradio/track/next?limit=5')
-          let res = await fetchTracks.json()
-          setTracks(res)
-        }
-    
-        getTracks()
-       
+        let controller = new AbortController();
+        (async () => {
+          try {
+            const response = await fetch('https://api.radioking.io/widget/radio/csm-webradio/track/next?limit=5', {
+              signal: controller.signal
+            });
+            setTracks(await response.json());
+            controller = null;
+          } catch (e) { 
+            console.log(e)
+          }
+        })();
+        return () => controller?.abort();
       }, [tracks]);
       
     return (
