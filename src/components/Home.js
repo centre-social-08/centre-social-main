@@ -1,7 +1,21 @@
 import LogoHome from "../img/logo-csm.png"
 import Card from "./Card"
+import axios from 'axios'
+import {useState, useEffect} from 'react'
 
 const Home = () => {
+
+    const [articles, setArticles] = useState()
+
+    useEffect(() => {
+
+        const fetchArticles = async () => {
+            const articles = await axios.get(`http://127.0.0.1:8000/api/article/`)
+            setArticles(articles.data)
+        }
+        fetchArticles()
+      }, [])
+
     return (
         <div className="my-10">
             <div className="flex justify-center">
@@ -10,10 +24,7 @@ const Home = () => {
             <div>
                 <p className="text-4xl text-center">LES ACTUALITÉS</p>
                 <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                { articles && articles.map( article => <Card key={article.id} title={article.title} content={article.content.substring(0, 100) + '...'} date={article.created_at} />)}
                 </div>
             </div>
         </div>
