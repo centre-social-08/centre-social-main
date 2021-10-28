@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 const Contact = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    
+    const { register, handleSubmit, formState: { errors, isValid, isSubmitSuccessful } } = useForm();
     // const [result, setResult] = useState("");
     const onSubmit = (data) => axios.post('http://127.0.0.1:8000/api/sendmail', data)
 
@@ -52,6 +53,10 @@ const Contact = () => {
         </div>
         </div>
         <input type="submit" className="h-10 bg-red-500"/>
+        
+        {isSubmitSuccessful && (
+        <p className="text-green-400">Message Envoyé</p>
+        )}
         </form>
         </div>
       </div>
