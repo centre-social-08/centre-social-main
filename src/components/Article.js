@@ -1,11 +1,11 @@
 import Photo from "../img/photo.jpg"
 
 
-const Card = ({title, content, date}) => {
+const Article = ({title, content, date}) => {
 
     return (
       <div className="rounded overflow-hidden shadow-lg">
-      <img className="w-full" src={Photo} alt="article" />
+      {/* <img className="w-full" src={Photo} alt="article" /> */}
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-yellow-400">{title}</div>
         <p className="text-gray-700 text-base">
@@ -19,4 +19,4 @@ const Card = ({title, content, date}) => {
         )
 }
 
-export default Card
+export default Article

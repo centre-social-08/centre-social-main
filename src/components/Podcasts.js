@@ -11,7 +11,7 @@ const Podcasts = () => {
     useEffect(() => {
 
         const fetchPodcasts = async () => {
-            const articles = await axios.get(`http://127.0.0.1:8000/api/podcast/`)
+            const articles = await axios.get(`http://192.168.1.19:8000/api/podcast/`)
             setPodcasts(articles.data)
         }
         fetchPodcasts()
@@ -25,7 +25,7 @@ const Podcasts = () => {
             </div>
             <div>
                 <p className="text-4xl text-center">LES PODCASTS</p>
-                <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5">
+                <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5">
                 { podcasts && podcasts.map( podcast => <Podcast key={podcast.id} title={podcast.title} content={podcast.content} date={podcast.created_at}/>) }
                 </div>
             </div>
