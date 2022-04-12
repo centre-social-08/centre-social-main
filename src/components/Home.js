@@ -30,10 +30,12 @@ const Home = ({hasToken}) => {
                 { articles && articles.map( article => 
                 <Article 
                 key={article.id} 
+                id={article.id}
                 title={article.title} 
                 // content={article.content.substring(0, 100) + '...'}
                 content={article.content}
-                date={article.created_at} />)}
+                date={article.created_at} 
+                hasToken={hasToken} />)}
                 </div>
             </div>
         </div>

@@ -1,9 +1,18 @@
 import {useState} from 'react';
 import Spinner from "react-spinkit";
+import axios from 'axios';
 
-const Podcast = ({title, content, date}) => {
+const Podcast = ({id, title, content, date, hasToken}) => {
 
     const [loading, setLoading] = useState(true);
+
+    const handleDelete = (id) => {
+      axios.delete(`/api/podcast/`+id).then(res => {
+        if(res.data.status === 200)
+        {
+          window.location.reload()
+        }
+    })}
     
     const iframeLoading = () => {
       setLoading(false)
@@ -12,6 +21,7 @@ const Podcast = ({title, content, date}) => {
     return (
     <div className="rounded overflow-hidden shadow-lg">
       <div className="px-6 pb-4">
+      {hasToken ? <button onClick={ () => handleDelete(id)} className="text-red-400">X</button> : '' }
         <div className="font-bold text-xl mb-2 text-yellow-400 self-auto">
           {title}
         </div>

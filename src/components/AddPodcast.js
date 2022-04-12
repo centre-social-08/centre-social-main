@@ -27,7 +27,7 @@ const AddPodcast = () => {
     axios.post('/api/podcast', data).then(res => {
         if(res.data.status === 200)
         {
-          history.push('/')
+          window.location.reload()
         }
         else if(res.data.status === 500)
         {

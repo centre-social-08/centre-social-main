@@ -28,7 +28,7 @@ const Podcasts = ({hasToken}) => {
                 <p className="text-4xl text-center">LES PODCASTS</p>
                 { hasToken ? <AddPodcast/> : '' }
                 <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5">
-                { podcasts && podcasts.map( podcast => <Podcast key={podcast.id} title={podcast.title} content={podcast.content} date={podcast.created_at}/>) }
+                { podcasts && podcasts.map( podcast => <Podcast key={podcast.id} id={podcast.id} title={podcast.title} content={podcast.content} date={podcast.created_at} hasToken={hasToken}/>) }
                 </div>
             </div>
         </div>
