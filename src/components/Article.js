@@ -1,5 +1,4 @@
-import Photo from "../img/photo.jpg"
-
+// import Photo from "../img/photo.jpg"
 
 const Article = ({title, content, date}) => {
 

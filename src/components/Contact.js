@@ -5,12 +5,7 @@ import axios from 'axios';
 const Contact = () => {
     
     const { register, handleSubmit, formState: { errors, isSubmitSuccessful } } = useForm();
-    // const [result, setResult] = useState("");
-    const onSubmit = (data) => axios.post('http://127.0.0.1:8000/api/sendmail', data).catch(error => console.log(error.response))
-
-    // useEffect( (result) => {
-    //     axios.post('http://127.0.0.1:8000/api/sendmail', result);
-    //   }, [result]);
+    const onSubmit = (data) => axios.post('/api/sendmail', data).catch(error => console.log(error.response))
   
     return (
       <div className="flex justify-center items-center h-screen w-full bg-black">

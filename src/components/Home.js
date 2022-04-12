@@ -2,15 +2,16 @@ import LogoHome from "../img/logo-csm.png"
 import Article from "./Article"
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import AddArticle from "./AddArticle"
 
-const Home = () => {
+const Home = ({hasToken}) => {
 
     const [articles, setArticles] = useState()
 
     useEffect(() => {
 
         const fetchArticles = async () => {
-            const articles = await axios.get(`http://192.168.1.19:8000/api/article/`)
+            const articles = await axios.get(`/api/article/`)
             setArticles(articles.data)
         }
         fetchArticles()
@@ -21,6 +22,7 @@ const Home = () => {
             <div className="flex justify-center">
             <img src={LogoHome} alt="Home Logo" width="450" height="450"/>
             </div>
+            { hasToken ? <AddArticle/> : '' }
             <div>
                 <p className="text-4xl text-center">LES ACTUALITÉS</p>
                 <div className="p-10 grid grid-cols-1 sm:grid-cols-1 

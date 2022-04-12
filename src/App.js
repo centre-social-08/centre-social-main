@@ -15,7 +15,7 @@ import Footer from "./components/Footer";
 import axios from "axios";
 import { useState } from "react";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "http://192.168.1.16:8000";
 axios.defaults.headers.post["Accept"] = "application/json";
 axios.defaults.headers.post["Content-type"] = "application/json";
 axios.defaults.withCredentials = true;
@@ -36,10 +36,10 @@ function App() {
         <Nav hasToken={hasToken} setHasToken={setHasToken} />
         <Switch>
           <Route path="/" exact>
-            <Home />
+            <Home hasToken={hasToken} />
           </Route>
           <Route path="/podcasts">
-            <Podcasts />
+            <Podcasts hasToken={hasToken} />
           </Route>
           <Route path="/live">
             <Live />
